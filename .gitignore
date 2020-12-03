@@ -1,0 +1,10 @@
+.vscode
+.env
+.DS_Store
+
+# Terraform
+.terraform
+*.tfvars
+*.tfstate
+*.backup
+.*.lock
