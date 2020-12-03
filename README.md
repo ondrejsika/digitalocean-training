@@ -85,9 +85,34 @@ DigitalOcean is a developer's cloud. We make it simple to launch in the cloud an
 
 ### Terraform
 
+- Terraform Provider - https://registry.terraform.io/providers/digitalocean/digitalocean/latest/docs
+
 ### CLI
 
+- Setup CLI - https://www.digitalocean.com/docs/apis-clis/doctl/how-to/install/
+- Reference - https://www.digitalocean.com/docs/apis-clis/doctl/reference/
+
+Install `doctl`
+
+```
+brew install doctl
+```
+
+Setup CLI
+
+```
+doctl auth init
+```
+
+Validate
+
+```
+doctl account get
+```
+
 ### Web UI
+
+Go to: <https://cloud.digitalocean.com/>
 
 ## Digital Ocean Resources
 
