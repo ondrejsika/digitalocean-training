@@ -407,6 +407,74 @@ resource "digitalocean_spaces_bucket" "data" {
 
 ### Firewalls
 
+#### Web UI
+
+Go to: https://cloud.digitalocean.com/networking/firewalls
+
+#### Terraform
+
+[Docs](https://registry.terraform.io/providers/digitalocean/digitalocean/latest/docs/resources/firewall)
+
+```tf
+resource "digitalocean_firewall" "example" {
+  name = "only-22-80-and-443"
+
+  droplet_ids = [
+    digitalocean_droplet.example.id
+  ]
+
+  inbound_rule {
+    protocol         = "tcp"
+    port_range       = "22"
+    source_addresses = ["0.0.0.0/0", "::/0"]
+  }
+
+  inbound_rule {
+    protocol         = "tcp"
+    port_range       = "80"
+    source_addresses = ["0.0.0.0/0", "::/0"]
+  }
+
+  inbound_rule {
+    protocol         = "tcp"
+    port_range       = "443"
+    source_addresses = ["0.0.0.0/0", "::/0"]
+  }
+
+  inbound_rule {
+    protocol         = "icmp"
+    source_addresses = ["0.0.0.0/0", "::/0"]
+  }
+
+  outbound_rule {
+    protocol              = "tcp"
+    port_range            = "53"
+    destination_addresses = ["0.0.0.0/0", "::/0"]
+  }
+
+  outbound_rule {
+    protocol              = "udp"
+    port_range            = "53"
+    destination_addresses = ["0.0.0.0/0", "::/0"]
+  }
+
+  outbound_rule {
+    protocol              = "icmp"
+    destination_addresses = ["0.0.0.0/0", "::/0"]
+  }
+}
+```
+
+#### CLI
+
+[Docs](https://www.digitalocean.com/docs/apis-clis/doctl/reference/compute/firewall/)
+
+List firewalls
+
+```
+doctl compute firewall list
+```
+
 ### DNS
 
 ### App Platform
