@@ -37,6 +37,12 @@ For sharing links & "secrets".
 - DO's Management
 - DO's Resources
 
+## Main Resources
+
+- Control Panel: https://cloud.digitalocean.com/
+- Docs: https://www.digitalocean.com/docs/
+- Terraform Provider Docs: https://registry.terraform.io/providers/digitalocean/digitalocean/latest/docs
+
 ## Cloud & Digital Ocean
 
 ### What is Cloud
