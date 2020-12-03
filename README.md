@@ -475,7 +475,78 @@ List firewalls
 doctl compute firewall list
 ```
 
-### DNS
+### Domains (DNS)
+
+#### Web UI
+
+Go to: https://cloud.digitalocean.com/networking/domains
+
+#### Terraform
+
+Docs:
+
+- Domain - https://registry.terraform.io/providers/digitalocean/digitalocean/latest/docs/resources/domain
+- Record - https://registry.terraform.io/providers/digitalocean/digitalocean/latest/docs/resources/record
+
+```tf
+resource "digitalocean_domain" "example_com" {
+  name = "example.com"
+}
+
+resource "digitalocean_record" "example_com" {
+  domain = digitalocean_domain.default.name
+  type   = "A"
+  name   = ""
+  value  = "1.1.1.1"
+}
+
+resource "digitalocean_record" "www_example_com" {
+  domain = digitalocean_domain.default.name
+  type   = "CNAME"
+  name   = "www"
+  value  = "${digitalocean_record.example_com.fqdn}."
+}
+```
+
+#### CLI
+
+[Docs](https://www.digitalocean.com/docs/apis-clis/doctl/reference/compute/domain/)
+
+Create domain
+
+```
+doctl compute domain create <domain>
+```
+
+List domains
+
+```
+doctl compute domain list
+```
+
+Delete domain
+
+```
+doctl compute domain delete <domain>
+```
+
+List Records
+
+```
+doctl compute domain records list <domain>
+```
+
+Create Record
+
+```
+doctl compute domain records create <domain>  --record-type <record type> --record-name <record name> --record-data <record data>
+```
+
+Delete record
+
+```
+doctl compute domain records delete <domain> <record id>
+```
 
 ### App Platform
 
