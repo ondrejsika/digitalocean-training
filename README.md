@@ -373,6 +373,34 @@ doctl databases backups <database_cluster_id>
 
 ### Spaces (S3)
 
+- Product: https://www.digitalocean.com/products/spaces/
+- Docs: https://www.digitalocean.com/docs/spaces/
+
+#### Web UI
+
+Got to: https://cloud.digitalocean.com/spaces
+
+#### Terraform
+
+[Docs](https://registry.terraform.io/providers/digitalocean/digitalocean/latest/docs/resources/spaces_bucket)
+
+Spaces requure `SPACES_ACCESS_KEY_ID` and `SPACES_SECRET_ACCESS_KEY` in provider
+
+```tf
+provider "digitalocean" {
+  token             = var.digitalocean_token
+  spaces_access_id  = var.access_id
+  spaces_secret_key = var.secret_key
+}
+```
+
+```
+resource "digitalocean_spaces_bucket" "data" {
+  name   = "data"
+  region = "fra1"
+}
+```
+
 ### Monitoring
 
 ### VPC
