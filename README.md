@@ -303,6 +303,74 @@ doctl compute load-balancer list
 
 ### Databases
 
+- Product: https://www.digitalocean.com/products/managed-databases/
+- Docs: https://www.digitalocean.com/docs/databases/
+
+Manage Databases:
+
+- Postgres
+- MySQL
+- Redis
+
+#### Web UI
+
+Go to: https://cloud.digitalocean.com/databases
+
+#### Terraform
+
+Docs:
+
+- DB Cluster - https://registry.terraform.io/providers/digitalocean/digitalocean/latest/docs/resources/database_cluster
+- DB Connection Pool - https://registry.terraform.io/providers/digitalocean/digitalocean/latest/docs/resources/database_connection_pool
+- DB User - https://registry.terraform.io/providers/digitalocean/digitalocean/latest/docs/resources/database_user
+- DB Database - https://registry.terraform.io/providers/digitalocean/digitalocean/latest/docs/resources/database_db
+
+```tf
+resource "digitalocean_database_cluster" "pg" {
+  name       = "demo-pg"
+  engine     = "pg"
+  version    = "11"
+  size       = "db-s-1vcpu-1gb"
+  region     = "fra1"
+  node_count = 1
+}
+
+resource "digitalocean_database_user" "foo" {
+  cluster_id = digitalocean_database_cluster.pg.id
+  name       = "foo"
+}
+
+resource "digitalocean_database_db" "bar" {
+  cluster_id = digitalocean_database_cluster.pg.id
+  name       = "bar"
+}
+
+resource "digitalocean_database_connection_pool" "pool-01" {
+  cluster_id = digitalocean_database_cluster.pg.id
+  name       = "demo-pg-pool-01"
+  mode       = "transaction"
+  size       = 20
+  db_name    = digitalocean_database_db.bar.name
+  user       = digitalocean_database_user.foo.name
+}
+```
+
+#### CLI
+
+[Docs](https://www.digitalocean.com/docs/apis-clis/doctl/reference/databases/)
+
+List Databases:
+
+```
+doctl databases list
+```
+
+List Database Backups:
+
+```
+doctl databases backups <database_cluster_id>
+```
+
 ### Spaces (S3)
 
 ### Monitoring
