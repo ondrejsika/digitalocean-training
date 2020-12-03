@@ -261,6 +261,46 @@ resource "digitalocean_kubernetes_node_pool" "demo-tf-2" {
 
 ### Loadbalancers
 
+- Docs: https://www.digitalocean.com/docs/networking/load-balancers/
+
+#### Web UI
+
+Go to: https://cloud.digitalocean.com/networking/load_balancers
+
+#### Terraform
+
+[Docs](https://registry.terraform.io/providers/digitalocean/digitalocean/latest/docs/resources/loadbalancer)
+
+```tf
+resource "digitalocean_loadbalancer" "demo-tf" {
+  name   = "demo"
+  region = "fra1"
+  droplet_tag = "k8s:${digitalocean_kubernetes_cluster.demo-tf.id}"
+
+  healthcheck {
+    port     = 30001
+    protocol = "tcp"
+  }
+
+  forwarding_rule {
+    entry_port      = 80
+    target_port     = 30001
+    entry_protocol  = "tcp"
+    target_protocol = "tcp"
+  }
+}
+```
+
+#### CLI
+
+[Docs](https://www.digitalocean.com/docs/apis-clis/doctl/reference/compute/load-balancer/)
+
+List load balancers:
+
+```
+doctl compute load-balancer list
+```
+
 ### Databases
 
 ### Spaces (S3)
