@@ -30,7 +30,66 @@ For sharing links & "secrets".
 
 <https://tlk.io/sika-do>
 
-TODO: Course content
+## Agenda
+
+- Cloud & Digital Ocean Intro
+- DO's Structure
+- DO's Management
+- DO's Resources
+
+## Cloud & Digital Ocean
+
+### What is Cloud
+
+### What is Digit Ocean
+
+### Digital Ocean vs Others
+
+#### Digital Ocean vs AWS, GCP, Azure
+
+#### Digital Ocean vs Linode, Hetzner Cloud
+
+#### Digital Ocean vs hosting
+
+## Digital Ocean Structure
+
+### Users
+
+### Teams
+
+### Projects
+
+## Digital Ocean Management
+
+### Terraform
+
+### CLI
+
+### Web UI
+
+## Digital Ocean Resources
+
+### Droplets
+
+### Kubernetes
+
+### Loadbalancers
+
+### Databases
+
+### Spaces (S3)
+
+### Monitoring
+
+### VPC
+
+### Firewalls
+
+### DNS
+
+### App Platform
+
+## Digital Ocean Czech Community
 
 ## Thank you! & Questions?
 
