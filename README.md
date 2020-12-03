@@ -198,6 +198,67 @@ doctl compute droplet delete <id>
 
 ### Kubernetes
 
+- Product: https://www.digitalocean.com/products/kubernetes/
+- Docs: https://www.digitalocean.com/docs/kubernetes/
+
+Get avaiable Kubernetes versions:
+
+```
+doctl kubernetes options versions
+```
+
+Get available node sizes:
+
+```
+doctl kubernetes options sizes
+```
+
+Get available regions:
+
+```
+doctl kubernetes options regions
+```
+
+#### Web UI
+
+Go to: https://cloud.digitalocean.com/kubernetes/clusters
+
+#### Terraform
+
+Docs:
+
+- Cluster - https://registry.terraform.io/providers/digitalocean/digitalocean/latest/docs/resources/kubernetes_cluster
+- Node Pool - https://registry.terraform.io/providers/digitalocean/digitalocean/latest/docs/resources/kubernetes_node_pool
+
+```tf
+resource "digitalocean_kubernetes_cluster" "demo-tf" {
+  name   = "demo-tf"
+  region = "fra1"
+  version = "1.19.3-do.2"
+  node_pool {
+    name       = "demo-tf"
+    size       = "s-2vcpu-2gb"
+    node_count = 1
+  }
+}
+```
+
+Additional Node pool
+
+```
+resource "digitalocean_kubernetes_node_pool" "demo-tf-2" {
+  cluster_id = digitalocean_kubernetes_cluster.demo-tf.id
+  name       = "demo-tf-2"
+  size       = "s-2vcpu-2gb"
+  node_count = 2
+}
+```
+
+#### CLI
+
+- doctl kubernetes - https://www.digitalocean.com/docs/apis-clis/doctl/reference/kubernetes/
+- doctl kubernetes cluster - https://www.digitalocean.com/docs/apis-clis/doctl/reference/kubernetes/cluster/
+
 ### Loadbalancers
 
 ### Databases
