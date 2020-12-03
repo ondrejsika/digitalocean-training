@@ -47,23 +47,39 @@ For sharing links & "secrets".
 
 ### What is Cloud
 
+Cloud computing is the on-demand availability of computer system resources, especially data storage and computing power, without direct active management by the user. -- [Wikipedia](https://en.wikipedia.org/wiki/Cloud_computing)
+
 ### What is Digit Ocean
+
+DigitalOcean is a developer's cloud. We make it simple to launch in the cloud and scale up as you grow – with an intuitive control panel, predictable pricing, team accounts, and more. -- DigitalOcean
 
 ### Digital Ocean vs Others
 
-#### Digital Ocean vs AWS, GCP, Azure
-
-#### Digital Ocean vs Linode, Hetzner Cloud
-
-#### Digital Ocean vs hosting
+- Digital Ocean vs AWS, GCP, Azure
+- Digital Ocean vs Linode, Hetzner Cloud
+- Digital Ocean vs hosting
 
 ## Digital Ocean Structure
 
 ### Users
 
+- One account / login per user (same as GitHub)
+- Easy switch between Teams
+
 ### Teams
 
+- Units for companies, teams, ...
+- Own billing settings
+- Own access tokens
+- Roles
+  - Owner
+  - Member
+  - Biller
+
 ### Projects
+
+- Only for organization inside of Team
+- No restrictions & permissions
 
 ## Digital Ocean Management
 
