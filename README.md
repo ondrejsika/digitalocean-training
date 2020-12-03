@@ -116,7 +116,85 @@ Go to: <https://cloud.digitalocean.com/>
 
 ## Digital Ocean Resources
 
+### SSH Keys
+
+Web UI: https://cloud.digitalocean.com/account/security
+
+#### Terraform
+
+[Docs](https://registry.terraform.io/providers/digitalocean/digitalocean/latest/docs/resources/ssh_key)
+
+```terraform
+resource "digitalocean_ssh_key" "default" {
+  name       = "default"
+  public_key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHtI4BsjxWHmRB3EzyQDSX5idgyjD67XL4WmIjz+pcG6"
+}
+```
+
+or from file
+
+```terraform
+resource "digitalocean_ssh_key" "default" {
+  name       = "default"
+  public_key = file("~/.ssh/id_rsa.pub")
+}
+```
+
 ### Droplets
+
+- Product: https://www.digitalocean.com/products/droplets/
+- Docs: https://www.digitalocean.com/docs/droplets/
+
+#### Web UI
+
+Go to: https://cloud.digitalocean.com/droplets
+
+#### Terraform
+
+[Docs](https://registry.terraform.io/providers/digitalocean/digitalocean/latest/docs/resources/droplet)
+
+```tf
+resource "digitalocean_droplet" "demo" {
+  image  = "ubuntu-18-04-x64"
+  name   = "demo-tf"
+  region = "fra1"
+  size   = "s-1vcpu-1gb"
+}
+```
+
+or with SSH key
+
+```tf
+resource "digitalocean_droplet" "demo-ssh-key" {
+  image    = "ubuntu-18-04-x64"
+  name     = "demo-tf-ssh-key"
+  region   = "fra1"
+  size     = "s-1vcpu-1gb"
+  ssh_keys = [
+    digitalocean_ssh_key.default.fingerprint
+  ]
+}
+```
+
+#### CLI
+
+Create
+
+```
+doctl compute droplet create demo-cli --region fra1 --size s-1vcpu-1gb --image ubuntu-18-04-x64
+```
+
+List
+
+```
+doctl compute droplet list
+```
+
+Delete
+
+```
+doctl compute droplet delete <id>
+```
 
 ### Kubernetes
 
