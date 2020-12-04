@@ -406,6 +406,41 @@ resource "digitalocean_spaces_bucket" "data" {
 
 ### VPC
 
+- Product: https://www.digitalocean.com/products/vpc/
+- Docs: https://www.digitalocean.com/docs/networking/vpc/
+
+#### Web UI
+
+Go to: https://cloud.digitalocean.com/networking/vpc
+
+#### Terraform
+
+[Docs](https://registry.terraform.io/providers/digitalocean/digitalocean/latest/docs/resources/vpc)
+
+```tf
+resource "digitalocean_vpc" "demo" {
+  name     = "demo-net"
+  region   = "fra1"
+  ip_range = "10.10.10.0/24"
+}
+
+resource "digitalocean_droplet" "demo-vpc-1" {
+  name     = "demo-vpc-1"
+  size     = "s-1vcpu-1gb"
+  image    = "ubuntu-18-04-x64"
+  region   = "fra1"
+  vpc_uuid = digitalocean_vpc.demo.id
+}
+
+resource "digitalocean_droplet" "demo-vpc-2" {
+  name     = "demo-vpc-2"
+  size     = "s-1vcpu-1gb"
+  image    = "ubuntu-18-04-x64"
+  region   = "fra1"
+  vpc_uuid = digitalocean_vpc.example.id
+}
+```
+
 ### Firewalls
 
 #### Web UI
