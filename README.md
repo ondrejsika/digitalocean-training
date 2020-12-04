@@ -552,6 +552,8 @@ doctl compute domain records delete <domain> <record id>
 
 ## DigitalOcean Czech Community
 
+Join us: https://digitalocean.cz
+
 ## Thank you! & Questions?
 
 That's it. Do you have any questions? **Let's go for a beer!**
