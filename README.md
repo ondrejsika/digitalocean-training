@@ -1,9 +1,9 @@
 [Ondrej Sika (sika.io)](https://sika.io) | <ondrej@sika.io>
 
-# Digital Ocean Training
+# DigitalOcean Training
 
     Ondrej Sika <ondrej@ondrejsika.com>
-    https://github.com/ondrejsika/digital-ocean-training
+    https://github.com/ondrejsika/digitalocean-training
 
 ## Course
 
@@ -32,7 +32,7 @@ For sharing links & "secrets".
 
 ## Agenda
 
-- Cloud & Digital Ocean Intro
+- Cloud & DigitalOcean Intro
 - DO's Structure
 - DO's Management
 - DO's Resources
@@ -43,7 +43,7 @@ For sharing links & "secrets".
 - Docs: https://www.digitalocean.com/docs/
 - Terraform Provider Docs: https://registry.terraform.io/providers/digitalocean/digitalocean/latest/docs
 
-## Cloud & Digital Ocean
+## Cloud & DigitalOcean
 
 ### What is Cloud
 
@@ -53,13 +53,13 @@ Cloud computing is the on-demand availability of computer system resources, espe
 
 DigitalOcean is a developer's cloud. We make it simple to launch in the cloud and scale up as you grow – with an intuitive control panel, predictable pricing, team accounts, and more. -- DigitalOcean
 
-### Digital Ocean vs Others
+### DigitalOcean vs Others
 
-- Digital Ocean vs AWS, GCP, Azure
-- Digital Ocean vs Linode, Hetzner Cloud
-- Digital Ocean vs hosting
+- DigitalOcean vs AWS, GCP, Azure
+- DigitalOcean vs Linode, Hetzner Cloud
+- DigitalOcean vs hosting
 
-## Digital Ocean Structure
+## DigitalOcean Structure
 
 ### Users
 
@@ -81,7 +81,7 @@ DigitalOcean is a developer's cloud. We make it simple to launch in the cloud an
 - Only for organization inside of Team
 - No restrictions & permissions
 
-## Digital Ocean Management
+## DigitalOcean Management
 
 ### Terraform
 
@@ -114,7 +114,7 @@ doctl account get
 
 Go to: <https://cloud.digitalocean.com/>
 
-## Digital Ocean Resources
+## DigitalOcean Resources
 
 ### SSH Keys
 
@@ -550,7 +550,7 @@ doctl compute domain records delete <domain> <record id>
 
 ### App Platform
 
-## Digital Ocean Czech Community
+## DigitalOcean Czech Community
 
 ## Thank you! & Questions?
 
