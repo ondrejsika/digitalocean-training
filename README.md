@@ -261,6 +261,7 @@ resource "digitalocean_kubernetes_node_pool" "demo-tf-2" {
 
 ### Loadbalancers
 
+- Product: https://www.digitalocean.com/products/load-balancer/
 - Docs: https://www.digitalocean.com/docs/networking/load-balancers/
 
 #### Web UI
